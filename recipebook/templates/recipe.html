@@ -7,11 +7,11 @@
 </head>
 <body>
     <h1 style = "font-family:verdana; color:red">Recipe Book</h1>
-    <h2 style = "font-family:verdana; color:blue">{{ name }}</h2>
+    <h2 style = "font-family:verdana; color:blue">{{ recipe.name }}</h2>
     <h3 style = "font-family:verdana; color:blue">
         <ul>
-            {% for ingredient in ingredients %}
-            <li style = "font-family:verdana">{{ ingredient.quantity }} {{ingredient.name}}</li>
+            {% for ingredient in recipe.ingredients.all %}
+            <li style = "font-family:verdana">{{ ingredient.quantity }}: {{ingredient.ingredient.name}}</li>
             {% endfor %}
         </ul>
     </h3>
