@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Book</title>
-</head>
-<body>
-    <h1 style = "font-family:verdana; color:red">Recipe Book</h1>
-    <h2 style = "font-family:verdana; color:blue">{{ recipe.name }}</h2>
-    <h3 style = "font-family:verdana; color:blue">
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 style = "font-family:verdana; color: purple"> Recipe Details: </h2>
+    <h2 style = "font-family:verdana; color: lightcoral">{{ recipe.name }}</h2>
+    <h3 style = "font-family:verdana; color: lightslategray">{{ recipe.author }}</h3>
+    <h4 style = "font-family:verdana; color: lightsalmon">
         <ul>
             {% for ingredient in recipe.ingredients.all %}
-            <li style = "font-family:verdana">{{ ingredient.quantity }}: {{ingredient.ingredient.name}}</li>
+            <li>{{ ingredient.ingredient.name }}:{{ ingredient.quantity }} </li>
             {% endfor %}
         </ul>
-    </h3>
-</body>
-</html>
+    </h4>
+{% endblock %}
